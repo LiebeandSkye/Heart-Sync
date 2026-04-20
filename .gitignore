@@ -1,2 +1,9 @@
+node_modules/
+package-lock.json
+
+.firebaserc
+firebase.json
+HostWebsiteNote.txt
+NOTindex.html
 structure-cleaned.md
 structure.md

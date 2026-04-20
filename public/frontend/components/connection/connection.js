@@ -73,8 +73,8 @@ const directChatPanel = document.getElementById('directChatPanel');
 const closePanelButtons = document.querySelectorAll('.panel-close');
 
 let activeProfileId = null;
-let __fsUnsubGlobal = null;
-let __fsUnsubThread = null;
+let globalUnsubscribe = null;
+let threadUnsubscribe = null;
 
 function readStoredProfile() {
     try {
@@ -149,6 +149,64 @@ function directChatKey(profileId) {
 function renderViewerChip() {
     const viewer = getViewer();
     viewerChip.textContent = `${viewer.name}, ${viewer.age} · ${viewer.location}`;
+}
+
+function timestampToTimeLabel(value) {
+    if (value && typeof value.toDate === 'function') {
+        return value.toDate().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    }
+
+    return timeLabel();
+}
+
+function attachGlobalRealtime() {
+    if (!(window.App && window.App.firebase && typeof window.App.firebase.listenToGlobalMessages === 'function')) {
+        return;
+    }
+
+    if (globalUnsubscribe) {
+        globalUnsubscribe();
+    }
+
+    globalUnsubscribe = window.App.firebase.listenToGlobalMessages((messages) => {
+        const viewer = window.App.firebase.currentUser ? window.App.firebase.currentUser() : null;
+        const normalized = messages.map((message) => ({
+            author: message.author || 'Unknown',
+            text: message.text || '',
+            time: timestampToTimeLabel(message.createdAt),
+            self: !!viewer && message.uid === viewer.uid,
+        }));
+
+        saveMessages(GLOBAL_CHAT_KEY, normalized);
+        renderMessages(globalFeed, normalized, 'The lounge is quiet right now. Start the first message.');
+    });
+}
+
+function attachThreadRealtime(profileId) {
+    if (!(window.App && window.App.firebase && typeof window.App.firebase.listenToThread === 'function')) {
+        return;
+    }
+
+    if (threadUnsubscribe) {
+        threadUnsubscribe();
+    }
+
+    const threadId = window.App.firebase.buildDirectThreadId(profileId);
+    threadUnsubscribe = window.App.firebase.listenToThread(threadId, (messages) => {
+        const viewer = window.App.firebase.currentUser ? window.App.firebase.currentUser() : null;
+        const normalized = messages.map((message) => ({
+            author: message.author || 'Unknown',
+            text: message.text || '',
+            time: timestampToTimeLabel(message.createdAt),
+            self: !!viewer && message.uid === viewer.uid,
+        }));
+
+        saveMessages(directChatKey(profileId), normalized);
+
+        if (activeProfileId === profileId) {
+            renderMessages(dmFeed, normalized, `No messages with ${getActiveProfile().name} yet.`);
+        }
+    });
 }
 
 function setPanelOpen(panelName, isOpen) {
@@ -261,36 +319,6 @@ function renderGlobalChat() {
     renderMessages(globalFeed, messages, 'The lounge is quiet right now. Start the first message.');
 }
 
-function attachFirestoreGlobalListener() {
-    try {
-        if (!window.App || !window.App.firebase || typeof window.App.firebase.initFirebase !== 'function') return;
-        window.App.firebase.initFirebase().then((user) => {
-            if (!user) return;
-            try {
-                if (typeof window.App.firebase.listenToGlobalMessages !== 'function') return;
-                if (__fsUnsubGlobal) __fsUnsubGlobal();
-                __fsUnsubGlobal = window.App.firebase.listenToGlobalMessages((docs) => {
-                    const mapped = docs.map((m) => ({
-                        author: m.author || 'Unknown',
-                        text: m.text || '',
-                        time: m.createdAt && m.createdAt.toDate ? m.createdAt.toDate().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : timeLabel(),
-                        self: m.uid === (user.uid || null),
-                    }));
-                    // persist locally then render
-                    if (window.AppState && typeof window.AppState.saveMessages === 'function') {
-                        window.AppState.saveMessages(GLOBAL_CHAT_KEY, mapped);
-                    }
-                    renderMessages(globalFeed, mapped, 'The lounge is quiet right now. Start the first message.');
-                });
-            } catch (e) {
-                console.warn('attachFirestoreGlobalListener failed', e);
-            }
-        }).catch(() => {});
-    } catch (e) {
-        console.warn('attachFirestoreGlobalListener error', e);
-    }
-}
-
 function appendGlobalMessage(message) {
     if (window.AppState && typeof window.AppState.appendGlobalMessage === 'function') {
         window.AppState.appendGlobalMessage(message);
@@ -361,39 +389,7 @@ function openDirectChat(profileId) {
     renderProfileGrid();
     renderDirectChat();
     setPanelOpen('direct', true);
-
-    // Attach Firestore listener for this thread if available
-    try {
-        if (window.App && window.App.firebase && typeof window.App.firebase.initFirebase === 'function') {
-            window.App.firebase.initFirebase().then((user) => {
-                if (!user) return;
-                try {
-                    if (typeof window.App.firebase.listenToThread !== 'function') return;
-                    if (__fsUnsubThread) __fsUnsubThread();
-                    const threadId = `dm_${profileId}`;
-                    __fsUnsubThread = window.App.firebase.listenToThread(threadId, (docs) => {
-                        const mapped = docs.map((m) => ({
-                            author: m.author || 'Unknown',
-                            text: m.text || '',
-                            time: m.createdAt && m.createdAt.toDate ? m.createdAt.toDate().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : timeLabel(),
-                            self: m.uid === (user.uid || null),
-                        }));
-                        // persist locally then render
-                        if (window.AppState && typeof window.AppState.saveMessages === 'function') {
-                            window.AppState.saveMessages(directChatKey(profileId), mapped);
-                        }
-                        if (activeProfileId === profileId) {
-                            renderMessages(dmFeed, mapped, `No messages with ${getActiveProfile().name} yet.`);
-                        }
-                    });
-                } catch (e) {
-                    console.warn('listenToThread failed', e);
-                }
-            }).catch(() => {});
-        }
-    } catch (e) {
-        console.warn('openDirectChat firestore attach error', e);
-    }
+    attachThreadRealtime(profileId);
 }
 
 openGlobalChatButton.addEventListener('click', () => {
@@ -483,3 +479,12 @@ renderProfileGrid();
 renderGlobalChat();
 renderDirectChat();
 syncDirectLauncher();
+
+attachGlobalRealtime();
+
+if (window.AppHooks && typeof window.AppHooks.register === 'function') {
+    window.AppHooks.register('profileLoaded', () => {
+        renderViewerChip();
+        renderProfileGrid();
+    });
+}

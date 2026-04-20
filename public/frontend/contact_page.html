@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="./main.css" />
+    <link rel="stylesheet" href="./components/contact/contact.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+</head>
+<body class="active">
+    <div id="load_navigation"></div>
+    <div id="load_contact"></div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+    <script src="../function/firebaseConfig.js"></script>
+    <script src="../function/appInit.js"></script>
+    <script src="../function/hooks.js"></script>
+    <script src="../function/firebaseInit.js"></script>
+    <script src="../function/stateHandler.js"></script>
+    <script src="../function/loadHTML.js"></script>
+    <script>
+        (async function () {
+            const user = await window.App.firebase.requireAuth('./login_page.html');
+            if (!user) return;
+
+            await Promise.all([
+                loadComponent('./components/utilities/navigation.html', 'load_navigation', './components/utilities/navigation.js'),
+                loadComponent('./components/contact/contact.html', 'load_contact', './components/contact/contact.js')
+            ]);
+
+            finishPageLoad();
+        })();
+    </script>
+</body>
+</html>

@@ -1,52 +1,8 @@
-:root {
-    --rose: #ff4d6d;
-    --rose-soft: #ff8fa3;
-    --rose-pale: #ffe7ec;
-    --ink: #1f2232;
-    --ink-soft: #5f677f;
-    --panel: rgba(255, 255, 255, 0.8);
-    --card: #111522;
-    --card-soft: #1d2234;
-    --white: #ffffff;
-    --border: rgba(31, 34, 50, 0.08);
-    --shadow: 0 24px 80px rgba(17, 21, 34, 0.16);
-    --font-display: 'Playfair Display', Georgia, serif;
-    --font-body: 'DM Sans', sans-serif;
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
 body {
-    min-height: 100vh;
-    font-family: var(--font-body);
-    color: var(--ink);
     background:
         radial-gradient(circle at top left, rgba(255, 143, 163, 0.35), transparent 28%),
         radial-gradient(circle at 85% 10%, rgba(255, 77, 109, 0.18), transparent 24%),
         linear-gradient(145deg, #fff8fa 0%, #fff2f4 45%, #f4f0ff 100%);
-}
-
-html {
-    scrollbar-color: var(--rose) rgba(255, 77, 109, 0.1);
-}
-
-*::-webkit-scrollbar {
-    width: 12px;
-    height: 12px;
-}
-
-*::-webkit-scrollbar-track {
-    background: rgba(255, 77, 109, 0.08);
-}
-
-*::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, var(--rose), #ff7f8d);
-    border-radius: 999px;
-    border: 3px solid rgba(255, 255, 255, 0.75);
 }
 
 a {

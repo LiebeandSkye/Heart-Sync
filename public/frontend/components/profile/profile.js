@@ -1,5 +1,3 @@
-import { initFirebase, loadProfileFromFirestore, saveProfileToFirestore } from '../../firebase/firebase.js';
-
 const PROFILE_STORAGE_KEY = 'heartsync.profile';
 
 const defaultProfile = {
@@ -32,21 +30,25 @@ const preview = {
 };
 
 function loadProfile() {
-    const stored = window.localStorage.getItem(PROFILE_STORAGE_KEY);
-
-    if (!stored) {
-        return { ...defaultProfile };
-    }
-
     try {
-        return { ...defaultProfile, ...JSON.parse(stored) };
+        return window.AppState && typeof window.AppState.loadUserProfile === 'function'
+            ? window.AppState.loadUserProfile()
+            : { ...defaultProfile };
     } catch {
         return { ...defaultProfile };
     }
 }
 
 function saveProfile(profile) {
-    window.localStorage.setItem(PROFILE_STORAGE_KEY, JSON.stringify(profile));
+    if (window.AppState && typeof window.AppState.saveUserProfile === 'function') {
+        window.AppState.saveUserProfile(profile);
+    } else {
+        try {
+            window.localStorage.setItem(PROFILE_STORAGE_KEY, JSON.stringify(profile));
+        } catch (e) {
+            console.warn('Failed to save profile locally', e);
+        }
+    }
 }
 
 function profileToHandle(name) {
@@ -115,7 +117,7 @@ function hydrate() {
     const profile = loadProfile();
     fillForm(profile);
     renderProfile(profile);
-    setSaveState('Saved locally on this browser.');
+    setSaveState('Profile synced from your account.');
 }
 
 form.addEventListener('input', () => {
@@ -123,42 +125,37 @@ form.addEventListener('input', () => {
     setSaveState('Unsaved changes');
 });
 
-form.addEventListener('submit', async (event) => {
+form.addEventListener('submit', (event) => {
     event.preventDefault();
     const profile = readFormState();
-    saveProfile(profile);
-    renderProfile(profile);
-    setSaveState('Profile saved locally.');
-
-    try {
-        const user = await initFirebase();
-        if (user) {
-            await saveProfileToFirestore(profile);
+    Promise.resolve(saveProfile(profile))
+        .then(() => {
+            renderProfile(profile);
             setSaveState('Profile saved to Firestore.');
-        }
-    } catch (e) {
-        console.warn('Firestore save failed', e);
-    }
+        })
+        .catch((error) => {
+            console.warn('Profile save failed', error);
+            setSaveState('Profile save failed. Check Firebase config and auth.');
+        });
 });
 
 resetButton.addEventListener('click', () => {
-    window.localStorage.removeItem(PROFILE_STORAGE_KEY);
-    hydrate();
+    Promise.resolve(
+        window.AppState && typeof window.AppState.resetUserProfile === 'function'
+            ? window.AppState.resetUserProfile()
+            : window.localStorage.removeItem(PROFILE_STORAGE_KEY)
+    ).then(() => {
+        hydrate();
+        setSaveState('Profile reset.');
+    });
 });
 
 hydrate();
 
-// Try to initialize Firebase (if user provided config) and hydrate from Firestore
-initFirebase().then(async (user) => {
-    if (!user) return;
-    try {
-        const remote = await loadProfileFromFirestore(user.uid);
-        if (remote) {
-            fillForm(remote);
-            renderProfile(remote);
-            setSaveState('Profile loaded from Firestore.');
-        }
-    } catch (e) {
-        console.warn('Failed to load profile from Firestore', e);
-    }
-});
+if (window.AppHooks && typeof window.AppHooks.register === 'function') {
+    window.AppHooks.register('profileLoaded', (profile) => {
+        fillForm(profile);
+        renderProfile(profile);
+        setSaveState('Profile loaded from Firestore.');
+    });
+}

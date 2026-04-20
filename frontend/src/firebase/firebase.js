@@ -13,6 +13,7 @@ import {
   addDoc,
   query,
   orderBy,
+  serverTimestamp,
   onSnapshot,
 } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
 
@@ -53,7 +54,7 @@ export async function initFirebase(config = AUTO_CONFIG) {
 export async function saveProfileToFirestore(profile) {
   if (!db) throw new Error('Firestore not initialized');
   if (!currentUser) throw new Error('Not signed in');
-  await setDoc(doc(db, 'profiles', currentUser.uid), { ...profile, updatedAt: new Date().toISOString() }, { merge: true });
+  await setDoc(doc(db, 'profiles', currentUser.uid), { ...profile, updatedAt: serverTimestamp() }, { merge: true });
 }
 
 export async function loadProfileFromFirestore(uid) {
@@ -77,7 +78,7 @@ export function listenToGlobalMessages(onUpdate) {
 
 export async function sendGlobalMessage(payload) {
   if (!db) throw new Error('Firestore not initialized');
-  await addDoc(collection(db, 'rooms', 'global', 'messages'), { ...payload, createdAt: new Date().toISOString() });
+  await addDoc(collection(db, 'rooms', 'global', 'messages'), { ...payload, createdAt: serverTimestamp() });
 }
 
 export function listenToThread(threadId, onUpdate) {
@@ -94,5 +95,5 @@ export function listenToThread(threadId, onUpdate) {
 
 export async function sendThreadMessage(threadId, payload) {
   if (!db) throw new Error('Firestore not initialized');
-  await addDoc(collection(db, 'threads', threadId, 'messages'), { ...payload, createdAt: new Date().toISOString() });
+  await addDoc(collection(db, 'threads', threadId, 'messages'), { ...payload, createdAt: serverTimestamp() });
 }

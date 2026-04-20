@@ -1,0 +1,112 @@
+<div class="page-shell">
+    <main class="about-layout">
+        <section class="hero-card">
+            <div class="hero-copy reveal">
+                <p class="eyebrow">About HeartSync</p>
+                <h1>A dating space built for calmer chemistry, not louder chaos.</h1>
+                <p class="intro">HeartSync started from a simple idea: most dating spaces push speed, pressure, and
+                    shallow swiping. This one is being shaped around profile depth, softer pacing, and conversations
+                    that feel human.</p>
+                <div class="hero-actions">
+                    <a class="btn-primary" href="./profile_page.html">Shape Your Profile</a>
+                    <a class="btn-secondary" href="./connection_page.html">Explore Connections</a>
+                </div>
+            </div>
+
+            <div class="hero-panel reveal">
+                <div class="pulse-card">
+                    <span class="panel-label">Current build</span>
+                    <strong>Client-side first</strong>
+                    <p>Profiles and chat flow are being tested in-browser first so the interaction model feels right
+                        before Firebase is wired in.</p>
+                </div>
+                <div class="pulse-grid">
+                    <article>
+                        <span>01</span>
+                        <strong>Profile identity</strong>
+                        <p>Let people feel expressive before they message.</p>
+                    </article>
+                    <article>
+                        <span>02</span>
+                        <strong>Meaningful matching</strong>
+                        <p>Use shared interests and age band, not random percentages.</p>
+                    </article>
+                    <article>
+                        <span>03</span>
+                        <strong>Chat with intention</strong>
+                        <p>Global energy on one side, direct connection on the other.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="story-grid">
+            <article class="story-card reveal">
+                <p class="eyebrow">What It Is For</p>
+                <h2>HeartSync is for people who want a real conversation before a real date.</h2>
+                <p>Instead of throwing users into a noisy feed, the idea is to let them build a profile that feels
+                    personal, browse people with some context, and move into chat without the app feeling like a game.
+                </p>
+                <p>That is why the current version focuses first on profile editing, match logic, and conversation flow.
+                    Those are the parts that decide whether the product feels sincere.</p>
+            </article>
+
+            <article class="timeline-card reveal">
+                <p class="eyebrow">How It Came To Be</p>
+                <div class="timeline-item">
+                    <strong>The spark</strong>
+                    <p>A simple static website idea for dating, built with plain HTML, CSS, and JavaScript instead of a
+                        full framework.</p>
+                </div>
+                <div class="timeline-item">
+                    <strong>The direction</strong>
+                    <p>Make the profile page feel expressive, the connection page feel social, and keep the frontend
+                        understandable before adding persistence.</p>
+                </div>
+                <div class="timeline-item">
+                    <strong>The next move</strong>
+                    <p>Keep the app client-side, then connect Firebase so profiles and chats persist without building a
+                        custom backend.</p>
+                </div>
+            </article>
+        </section>
+
+        <section class="principles-section">
+            <div class="section-heading reveal">
+                <p class="eyebrow">Design Principles</p>
+                <h2>What this website is trying to protect.</h2>
+            </div>
+            <div class="principles-grid">
+                <article class="principle-card reveal">
+                    <span class="card-number">01</span>
+                    <h3>Less pressure</h3>
+                    <p>Profiles should tell a story before messaging starts, so every interaction begins with more
+                        context and less guessing.</p>
+                </article>
+                <article class="principle-card reveal">
+                    <span class="card-number">02</span>
+                    <h3>More personality</h3>
+                    <p>Color, status, bio, interests, and presence all matter because people do not connect through one
+                        data point.</p>
+                </article>
+                <article class="principle-card reveal">
+                    <span class="card-number">03</span>
+                    <h3>Frontend first</h3>
+                    <p>The right move here is to finish the client experience, then plug Firebase in once the screens
+                        and flow already make sense.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="closing-card reveal">
+            <div>
+                <p class="eyebrow">What Comes Next</p>
+                <h2>Profiles to Firestore first, chats second.</h2>
+                <p>That sequencing keeps the app simple. Save profile data to Firestore, load it into the profile and
+                    connection pages, then move the global room and direct threads from localStorage into Firebase
+                    collections.</p>
+            </div>
+            <a class="btn-primary" href="./connection_page.html">Continue To Connection</a>
+        </section>
+    </main>
+</div>

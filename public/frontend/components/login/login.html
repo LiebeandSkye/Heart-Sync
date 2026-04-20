@@ -1,0 +1,38 @@
+<section class="login-shell">
+	<div class="login-card">
+		<div class="login-copy">
+			<p class="eyebrow">Welcome Back</p>
+			<h1>Sign in to HeartSync.</h1>
+			<p class="login-subcopy">Use email and password, create a new account, or continue anonymously for testing.</p>
+		</div>
+
+		<div class="login-tabs" role="tablist" aria-label="Authentication mode">
+			<button type="button" class="login-tab active" id="signInTab" data-mode="signin">Sign in</button>
+			<button type="button" class="login-tab" id="registerTab" data-mode="register">Create account</button>
+		</div>
+
+		<form class="login-form" id="loginForm">
+			<label>
+				<span>Email</span>
+				<input type="email" id="loginEmail" name="email" autocomplete="email" placeholder="you@example.com" required />
+			</label>
+
+			<label>
+				<span>Password</span>
+				<input type="password" id="loginPassword" name="password" autocomplete="current-password" placeholder="At least 6 characters" required minlength="6" />
+			</label>
+
+			<label id="confirmPasswordField" hidden>
+				<span>Confirm password</span>
+				<input type="password" id="confirmPassword" autocomplete="new-password" placeholder="Repeat your password" minlength="6" />
+			</label>
+
+			<button type="submit" class="btn-primary login-submit" id="loginSubmit">Sign in</button>
+			<p class="login-state" id="loginState" aria-live="polite"></p>
+		</form>
+
+		<div class="login-divider"><span>or</span></div>
+
+		<button type="button" class="btn-secondary anon-button" id="anonymousButton">Continue anonymously</button>
+	</div>
+</section>
