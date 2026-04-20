@@ -1,5 +1,5 @@
 /* ============================================================
-   About Page — HeartSync
+   About Page ï¿½ HeartSync
    ============================================================ */
 
 body {
@@ -9,7 +9,7 @@ body {
         linear-gradient(160deg, #fff9f5 0%, #fff5f8 50%, #f8f2ff 100%);
 }
 
-a { color: inherit; text-decoration: none; }
+
 
 .page-shell {
     width: min(1280px, calc(100% - 32px));
