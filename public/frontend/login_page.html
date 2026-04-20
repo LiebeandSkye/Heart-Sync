@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Sign In · HeartSync</title>
     <link rel="stylesheet" href="./main.css" />
     <link rel="stylesheet" href="./css/login.css" />
 
@@ -15,53 +15,91 @@
 </head>
 
 <body>
-    <section class="login-shell">
-        <div class="login-card">
-            <div class="login-copy">
-                <p class="eyebrow">Welcome Back</p>
-                <h1>Sign in to HeartSync.</h1>
-                <p class="login-subcopy">Use email and password, create a new account, or continue anonymously for
-                    testing.</p>
+    <div class="auth-shell">
+
+        <!-- ── Left brand panel ───────────────────── -->
+        <div class="auth-brand">
+            <a href="./home_page.html" class="auth-logo">
+                <span class="logo-icon">♥</span>
+                <span class="logo-text">Heart<strong>Sync</strong></span>
+            </a>
+
+            <div class="auth-brand-body">
+                <div class="auth-hearts" id="authHearts"></div>
+                <p class="auth-eyebrow">Your love story starts here</p>
+                <h2 class="auth-headline">Find someone <em>real</em>,<br>not just someone available.</h2>
+                <div class="auth-stats">
+                    <div class="auth-stat">
+                        <strong>50K+</strong>
+                        <span>Members</span>
+                    </div>
+                    <div class="auth-stat-divider"></div>
+                    <div class="auth-stat">
+                        <strong>12K+</strong>
+                        <span>Couples</span>
+                    </div>
+                    <div class="auth-stat-divider"></div>
+                    <div class="auth-stat">
+                        <strong>4.9★</strong>
+                        <span>Rating</span>
+                    </div>
+                </div>
             </div>
-
-            <div class="login-tabs" role="tablist" aria-label="Authentication mode">
-                <button type="button" class="login-tab active" id="signInTab" data-mode="signin">Sign in</button>
-                <button type="button" class="login-tab" id="registerTab" data-mode="register">Create account</button>
-            </div>
-
-            <form class="login-form" id="loginForm">
-                <label>
-                    <span>Email</span>
-                    <input type="email" id="loginEmail" name="email" autocomplete="email" placeholder="you@example.com"
-                        required />
-                </label>
-
-                <label>
-                    <span>Password</span>
-                    <input type="password" id="loginPassword" name="password" autocomplete="current-password"
-                        placeholder="At least 6 characters" required minlength="6" />
-                </label>
-
-                <label id="confirmPasswordField" hidden>
-                    <span>Confirm password</span>
-                    <input type="password" id="confirmPassword" autocomplete="new-password"
-                        placeholder="Repeat your password" minlength="6" />
-                </label>
-
-                <button type="submit" class="btn-primary login-submit" id="loginSubmit"><a href="./home_page.html">Sign in</a></button>
-                <p class="login-state" id="loginState" aria-live="polite"></p>
-            </form>
-
-            <div class="login-divider"><span>or</span></div>
-
-            <button type="button" class="btn-secondary anon-button" id="anonymousButton"><a href="./home_page.html">Continue anonymously</a></button>
         </div>
-    </section>
 
+        <!-- ── Right form panel ───────────────────── -->
+        <div class="auth-panel">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <p class="auth-eyebrow-sm">Welcome Back</p>
+                    <h1>Sign in to <span>HeartSync</span></h1>
+                    <p class="auth-sub">Connect with real people who value genuine bonds.</p>
+                </div>
 
+                <div class="auth-tabs" role="tablist" aria-label="Authentication mode">
+                    <button type="button" class="auth-tab active" id="signInTab" data-mode="signin">Sign In</button>
+                    <button type="button" class="auth-tab" id="registerTab" data-mode="register">Create Account</button>
+                </div>
 
-    <script src="../frontend/js/profile.js"></script>
+                <form class="auth-form" id="loginForm">
+                    <div class="auth-field">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" name="email" autocomplete="email"
+                            placeholder="you@example.com" required />
+                    </div>
+
+                    <div class="auth-field">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" name="password" autocomplete="current-password"
+                            placeholder="At least 6 characters" required minlength="6" />
+                    </div>
+
+                    <div class="auth-field" id="confirmPasswordField" hidden>
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" autocomplete="new-password"
+                            placeholder="Repeat your password" minlength="6" />
+                    </div>
+
+                    <a href="#" class="auth-forgot" id="forgotLink">Forgot password?</a>
+
+                    <a href="./home_page.html" class="btn-auth-primary" id="loginSubmit">Sign In</a>
+                    <p class="auth-state" id="loginState" aria-live="polite"></p>
+                </form>
+
+                <div class="auth-divider"><span>or</span></div>
+
+                <a href="./home_page.html" class="btn-auth-ghost" id="anonymousButton">Continue anonymously</a>
+
+                <p class="auth-footer-note">
+                    By signing in you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
     <script src="../function/loadHTML.js"></script>
+    <script src="./js/login.js"></script>
 </body>
 
 </html>
