@@ -169,9 +169,48 @@ button, input, textarea { font: inherit; }
 
 .avatar-preview-ring {
     flex-shrink: 0;
+    position: relative;
     padding: 5px;
     border-radius: 999px;
     background: conic-gradient(var(--rose), var(--peach), var(--rose));
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.avatar-preview-ring:hover {
+    transform: scale(1.05);
+}
+
+.avatar-overlay {
+    position: absolute;
+    inset: 0;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0);
+    display: grid;
+    place-items: center;
+    transition: background 0.2s ease;
+    pointer-events: none;
+}
+
+.avatar-preview-ring:hover .avatar-overlay {
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.avatar-edit-icon {
+    width: 32px;
+    height: 32px;
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: auto;
+}
+
+.avatar-preview-ring:hover .avatar-edit-icon {
+    opacity: 1;
+}
+
+.avatar-preview-ring {
+    pointer-events: auto;
 }
 
 .avatar-preview {
@@ -198,6 +237,30 @@ button, input, textarea { font: inherit; }
     color: var(--ink-soft);
     font-size: 0.86rem;
     line-height: 1.55;
+}
+
+.avatar-upload {
+    display: grid;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.avatar-upload input[type='file'] {
+    width: 100%;
+    padding: 10px;
+    border: 1.5px dashed rgba(31, 34, 50, 0.2);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.8);
+    font-size: 0.84rem;
+}
+
+.avatar-preview.has-image,
+.avatar.has-image {
+    color: transparent;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
 }
 
 .avatar-inline-fields {
