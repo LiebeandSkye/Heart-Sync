@@ -62,6 +62,12 @@
                 </div>
 
                 <form class="auth-form" id="loginForm">
+                    <div class="auth-field" id="displayNameField" hidden>
+                        <label for="displayName">Display Name</label>
+                        <input type="text" id="displayName" name="displayName" autocomplete="name"
+                            placeholder="Your name" maxlength="32" />
+                    </div>
+
                     <div class="auth-field">
                         <label for="loginEmail">Email</label>
                         <input type="email" id="loginEmail" name="email" autocomplete="email"
@@ -82,7 +88,7 @@
 
                     <a href="#" class="auth-forgot" id="forgotLink">Forgot password?</a>
 
-                    <a href="./home_page.html" class="btn-auth-primary" id="loginSubmit">Sign In</a>
+                    <button type="submit" class="btn-auth-primary" id="loginSubmit">Sign In</button>
                     <p class="auth-state" id="loginState" aria-live="polite"></p>
                 </form>
 
