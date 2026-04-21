@@ -289,7 +289,6 @@ button {
     border-radius: 50%;
     font-size: 1.3rem;
     font-weight: 700;
-    transition: all 0.2s;
     border: 2px solid transparent;
 }
 
@@ -501,7 +500,6 @@ button {
     text-align: center;
     width: 260px;
     position: relative;
-    transition: all 0.3s ease;
     overflow: hidden;
 }
 
@@ -511,7 +509,6 @@ button {
     inset: 0;
     background: linear-gradient(135deg, var(--blush), var(--lavender));
     opacity: 0;
-    transition: opacity 0.3s;
 }
 
 .step-card:hover {
@@ -622,7 +619,6 @@ button {
     background: var(--white);
     border-radius: var(--radius-md);
     border: 1.5px solid var(--border);
-    transition: all 0.3s;
 }
 
 .feature-item:hover {
@@ -703,7 +699,6 @@ button {
     gap: 10px;
     padding: 12px 10px;
     border-radius: 12px;
-    transition: background 0.2s;
 }
 
 
@@ -864,7 +859,6 @@ button {
     min-width: calc(50% - 12px);
     width: 100%; 
     flex-shrink: 0;
-    transition: all 0.4s ease;
 }
 
 .testi-stars {
@@ -926,7 +920,6 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.2s;
 }
 
 .testi-prev:hover,
@@ -946,7 +939,6 @@ button {
     height: 8px;
     border-radius: 50%;
     background: var(--rose-soft);
-    transition: all 0.2s;
     cursor: pointer;
 }
 
@@ -960,49 +952,28 @@ button {
 .cta-section {
     background: linear-gradient(135deg, #1A1A2E 0%, #2D1B4E 50%, #1A1A2E 100%);
     text-align: center;
-    position: relative;
     overflow: hidden;
 }
-
 .cta-inner {
     max-width: 700px;
     margin: 0 auto;
-    padding: 100px 24px;
-    position: relative;
-    z-index: 1;
+    padding: 60px 12px;
+    gap: 12px; 
 }
-
 .cta-hearts {
     display: flex;
     justify-content: center;
     gap: 16px;
-    margin-bottom: 24px;
 }
 
-.cta-heart {
-    font-size: 1.5rem;
-    animation: ctaHeartFloat 3s ease-in-out infinite;
-}
-
-.h1 {
-    color: var(--rose);
-    animation-delay: 0s;
-}
-
-.h2 {
-    color: var(--rose-light);
-    animation-delay: 0.5s;
-    font-size: 2rem;
-}
-
-.h3 {
-    color: var(--rose-soft);
-    animation-delay: 1s;
-}
+.cta-heart { font-size: 1.5rem; animation: ctaHeartFloat 3s ease-in-out infinite; }
+.cta-heart:nth-child(1) { animation-delay: 0s; }
+.cta-heart:nth-child(2) { animation-delay: 1s; }
+.cta-heart:nth-child(3) { animation-delay: 0.5s; }
 
 @keyframes ctaHeartFloat {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(-5px); }
 }
 
 .cta-inner h2 {
@@ -1081,7 +1052,6 @@ button {
     font-size: 0.75rem;
     font-weight: 700;
     color: rgba(255, 255, 255, 0.6);
-    transition: all 0.2s;
 }
 
 .social-btn:hover {
@@ -1113,7 +1083,6 @@ button {
 .footer-col a {
     font-size: 0.88rem;
     color: rgba(255, 255, 255, 0.5);
-    transition: color 0.2s;
 }
 
 .footer-col a:hover {

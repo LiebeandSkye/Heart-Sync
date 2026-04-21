@@ -225,7 +225,6 @@ body {
     font-weight: 700;
     font-size: 0.88rem;
     cursor: pointer;
-    transition: all 0.2s;
 }
 
 .auth-tab.active {
@@ -260,7 +259,6 @@ body {
     font-size: 0.95rem;
     color: var(--dark);
     outline: none;
-    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .auth-field input:focus {
@@ -290,7 +288,6 @@ body {
     font-size: 1rem;
     border: 0;
     cursor: pointer;
-    transition: all 0.25s;
     box-shadow: 0 8px 24px rgba(255, 77, 109, 0.3);
     margin-top: 4px;
     text-decoration: none;
@@ -348,7 +345,6 @@ body {
     font-weight: 600;
     font-size: 0.95rem;
     cursor: pointer;
-    transition: all 0.2s;
     text-decoration: none;
 }
 

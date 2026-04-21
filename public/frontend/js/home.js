@@ -16,14 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
         heartsBg.appendChild(el);
     }
 
-    // ── Navbar Scroll Effect ────────────────────────
-    const navbar = document.getElementById('navbar');
-    const onScroll = () => {
-        navbar.classList.toggle('scrolled', window.scrollY > 40);
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-
     // ── Hamburger Menu ──────────────────────────────
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
@@ -60,7 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
             // On mobile show 1 card, else 2
             const perView = window.innerWidth < 768 ? 1 : 2;
             const cardWidth = cards[0].offsetWidth + 24; // gap = 24px
-            track.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
             track.style.transform = `translateX(-${current * cardWidth}px)`;
             dotsWrap.querySelectorAll('.testi-dot').forEach((d, i) => {
                 d.classList.toggle('active', i === current);
@@ -91,11 +82,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const eased = 1 - Math.pow(1 - progress, 3);
             const current = Math.round(startVal + (target - startVal) * eased);
 
-            if (isLarge) {
-                el.textContent = current.toLocaleString();
-            } else {
-                el.textContent = current;
-            }
+            if (isLarge) { el.textContent = current.toLocaleString(); }
+            else { el.textContent = current; }
 
             if (progress < 1) requestAnimationFrame(tick);
             else el.textContent = isLarge ? target.toLocaleString() : target;
@@ -144,8 +132,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 entry.target.classList.add('fade-in-up');
                 revealObserver.unobserve(entry.target);
             }
-        });
-    }, { threshold: 0.15 });
+        })
+    }, { threshold: 0.15 })
 
     revealEls.forEach(el => revealObserver.observe(el));
 
@@ -155,19 +143,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const mainCard = document.querySelector('.main-card');
 
     likeBtn?.addEventListener('click', () => {
-        mainCard.style.transition = 'all 0.4s ease';
         mainCard.style.transform = 'translateX(80px) rotate(10deg) scale(0.95)';
         mainCard.style.opacity = '0';
         setTimeout(() => {
-            mainCard.style.transition = 'none';
             mainCard.style.transform = 'translateX(-80px) rotate(-5deg)';
             mainCard.style.opacity = '0';
             setTimeout(() => {
-                mainCard.style.transition = 'all 0.4s ease';
                 mainCard.style.transform = 'translateX(0) rotate(0deg)';
                 mainCard.style.opacity = '1';
-            }, 50);
-        }, 400);
+            }, 50)
+        }, 400)
 
         // Show match notification briefly
         const matchCard = document.querySelector('.float-card-2');
@@ -177,25 +162,22 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 matchCard.style.transform = '';
                 matchCard.style.boxShadow = '';
-            }, 800);
+            }, 800)
         }
-    });
+    })
 
     skipBtn?.addEventListener('click', () => {
-        mainCard.style.transition = 'all 0.4s ease';
         mainCard.style.transform = 'translateX(-80px) rotate(-10deg) scale(0.95)';
         mainCard.style.opacity = '0';
         setTimeout(() => {
-            mainCard.style.transition = 'none';
             mainCard.style.transform = 'translateX(80px) rotate(5deg)';
             mainCard.style.opacity = '0';
             setTimeout(() => {
-                mainCard.style.transition = 'all 0.4s ease';
                 mainCard.style.transform = 'translateX(0) rotate(0deg)';
                 mainCard.style.opacity = '1';
-            }, 50);
-        }, 400);
-    });
+            }, 50)
+        }, 400)
+    })
 
     // ── Parallax subtle on hero blobs ───────────────
     const blob1 = document.querySelector('.blob-1');
@@ -206,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const y = (e.clientY / window.innerHeight - 0.5) * 30;
         blob1.style.transform = `translate(${x}px, ${y}px)`;
         blob2.style.transform = `translate(${-x}px, ${-y}px)`;
-    });
+    })
 
     // ── Smooth anchor links ─────────────────────────
     document.querySelectorAll('a[href^="#"]').forEach(a => {
@@ -216,7 +198,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
                 target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
-        });
-    });
-
-});
+        })
+    })
+})

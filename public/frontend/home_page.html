@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./main.css" />
     <link rel="stylesheet" href="./css/home.css" />
 
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet"
@@ -17,37 +18,12 @@
 <body>
     <!-- Floating Hearts Background -->
     <div class="hearts-bg" id="heartsBg"></div>
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="home_page.html" class="logo">
-                <span class="logo-icon">♥</span>
-                <span class="logo-text">Heart<strong>Sync</strong></span>
-            </a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="home_page.html" class="active">Home</a></li>
-                <li><a href="about_page.html">About</a></li>
-                <li><a href="profile_page.html">Profiles</a></li>
-                <li><a href="connection_page.html">Connections</a></li>
-                <li><a href="contact_page.html">Contact</a></li>
-            </ul>
-            <div class="nav-cta">
-                <a href="login_page.html" class="btn-outline">Log In</a>
-                <a href="login_page.html" class="btn-primary">Join Free</a>
-            </div>
-            <button class="hamburger" id="hamburger" aria-label="Menu">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
-    </nav>
+    <div id="load_navigation"></div>
 
     <!-- ===== HERO SECTION ===== -->
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <div class="hero-badge">
-                    <span class="badge-dot"></span>
-                    <span>12,809+ happy couples this year</span>
-                </div>
                 <h1 class="hero-title">
                     Find Your<br />
                     <em class="hero-accent">Perfect</em><br />
@@ -57,19 +33,23 @@
                     let love find its way to you.</p>
                 <div class="hero-actions">
                     <a href="login_page.html" class="btn-primary btn-large">
-                        <span>Start Matching</span>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        Start Matching
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M8 6.65v10.69c0 .64.76.99 1.24.56l6.11-5.35c.34-.3.34-.83 0-1.13L9.24 6.07C8.76 5.65 8 5.99 8 6.63Z">
+                            </path>
                         </svg>
                     </a>
                     <a href="profile_page.html" class="btn-ghost">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <circle cx="12" cy="12" r="10" />
-                            <polygon points="10 8 16 12 10 16 10 8" />
-                        </svg>
                         Browse Profiles
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8">
+                            </path>
+                            <path d="m10 17 6-5-6-5z"></path>
+                        </svg>
                     </a>
                 </div>
                 <div class="hero-stats">
@@ -156,7 +136,7 @@
             </div>
         </div>
 
-        
+
     </section>
 
     <!-- ===== HOW IT WORKS ===== -->
@@ -179,10 +159,6 @@
                     <h3>Create Your Profile</h3>
                     <p>Sign up in seconds, add your photos, and tell us what makes you uniquely you.</p>
                 </div>
-                <div class="step-connector">
-                    <div class="connector-line"></div>
-                    <div class="connector-heart">♥</div>
-                </div>
                 <div class="step-card" data-step="2">
                     <div class="step-icon">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -194,10 +170,6 @@
                     <div class="step-number">02</div>
                     <h3>Discover Matches</h3>
                     <p>Our smart algorithm shows you compatible profiles based on shared interests and values.</p>
-                </div>
-                <div class="step-connector">
-                    <div class="connector-line"></div>
-                    <div class="connector-heart">♥</div>
                 </div>
                 <div class="step-card" data-step="3">
                     <div class="step-icon">
@@ -341,56 +313,63 @@
             <h2 class="section-title">Real People, <em>Real Love</em></h2>
 
             <div class="testi-viewport">
-            <div class="testimonials-track" id="testimonialsTrack">
-                <div class="testi-card">
-                    <div class="testi-stars">★★★★★</div>
-                    <p>"I never thought I'd find someone so perfect. HeartSync matched me with Amber and three months
-                        later, we're inseparable!"</p>
-                    <div class="testi-author">
-                        <div class="testi-avatar" style="background: linear-gradient(135deg, #f6d365, #fda085);"></div>
-                        <div>
-                            <strong>John, 30</strong>
-                            <span>Met Amber in 2024</span>
+                <div class="testimonials-track" id="testimonialsTrack">
+                    <div class="testi-card">
+                        <div class="testi-stars">★★★★★</div>
+                        <p>"I never thought I'd find someone so perfect. HeartSync matched me with Amber and three
+                            months
+                            later, we're inseparable!"</p>
+                        <div class="testi-author">
+                            <div class="testi-avatar" style="background: linear-gradient(135deg, #f6d365, #fda085);">
+                            </div>
+                            <div>
+                                <strong>John, 30</strong>
+                                <span>Met Amber in 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testi-card">
+                        <div class="testi-stars">★★★★★</div>
+                        <p>"The app is so intuitive! Within a week of signing up, I had five great conversations. Now
+                            I'm
+                            planning my wedding! 💍"</p>
+                        <div class="testi-author">
+                            <div class="testi-avatar" style="background: linear-gradient(135deg, #ff6b9d, #c44569);">
+                            </div>
+                            <div>
+                                <strong>Amber, 23</strong>
+                                <span>Met John in 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testi-card">
+                        <div class="testi-stars">★★★★★</div>
+                        <p>"As someone shy about dating, HeartSync gave me confidence. The chat features made it so easy
+                            to
+                            open up. Thank you!"</p>
+                        <div class="testi-author">
+                            <div class="testi-avatar" style="background: linear-gradient(135deg, #a18cd1, #fbc2eb);">
+                            </div>
+                            <div>
+                                <strong>Lily, 22</strong>
+                                <span>Met Mike in 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testi-card">
+                        <div class="testi-stars">★★★★★</div>
+                        <p>"I tried other apps but nothing worked until HeartSync. The matching is genuinely smart — it
+                            found my person in two weeks!"</p>
+                        <div class="testi-author">
+                            <div class="testi-avatar" style="background: linear-gradient(135deg, #84fab0, #8fd3f4);">
+                            </div>
+                            <div>
+                                <strong>Marcus, 28</strong>
+                                <span>Met Sophie in 2025</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="testi-card">
-                    <div class="testi-stars">★★★★★</div>
-                    <p>"The app is so intuitive! Within a week of signing up, I had five great conversations. Now I'm
-                        planning my wedding! 💍"</p>
-                    <div class="testi-author">
-                        <div class="testi-avatar" style="background: linear-gradient(135deg, #ff6b9d, #c44569);"></div>
-                        <div>
-                            <strong>Amber, 23</strong>
-                            <span>Met John in 2024</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testi-card">
-                    <div class="testi-stars">★★★★★</div>
-                    <p>"As someone shy about dating, HeartSync gave me confidence. The chat features made it so easy to
-                        open up. Thank you!"</p>
-                    <div class="testi-author">
-                        <div class="testi-avatar" style="background: linear-gradient(135deg, #a18cd1, #fbc2eb);"></div>
-                        <div>
-                            <strong>Lily, 22</strong>
-                            <span>Met Mike in 2025</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testi-card">
-                    <div class="testi-stars">★★★★★</div>
-                    <p>"I tried other apps but nothing worked until HeartSync. The matching is genuinely smart — it
-                        found my person in two weeks!"</p>
-                    <div class="testi-author">
-                        <div class="testi-avatar" style="background: linear-gradient(135deg, #84fab0, #8fd3f4);"></div>
-                        <div>
-                            <strong>Marcus, 28</strong>
-                            <span>Met Sophie in 2025</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
             </div>
 
             <div class="testi-controls">
@@ -405,9 +384,9 @@
     <section class="cta-section">
         <div class="cta-inner">
             <div class="cta-hearts">
-                <span class="cta-heart h1">♥</span>
-                <span class="cta-heart h2">♥</span>
-                <span class="cta-heart h3">♥</span>
+                <box-icon class="cta-heart" type='solid' name='heart' color="var(--rose)"></box-icon>
+                <box-icon class="cta-heart" type='solid' name='heart' color="var(--rose-deep)"></box-icon>
+                <box-icon class="cta-heart" type='solid' name='heart' color="var(--rose-soft)"></box-icon>
             </div>
             <h2>Ready to Find <em>Your Love Story?</em></h2>
             <p>Join thousands of singles who found their perfect match on HeartSync. Your story starts here.</p>
@@ -419,58 +398,14 @@
         </div>
     </section>
 
-    <!-- ===== FOOTER ===== -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-brand">
-                <a href="home_page.html" class="logo">
-                    <span class="logo-icon">♥</span>
-                    <span class="logo-text">Heart<strong>Sync</strong></span>
-                </a>
-                <p>Dating for every single person. Find your love story with HeartSync.</p>
-                <div class="footer-socials">
-                    <a href="#" class="social-btn">f</a>
-                    <a href="#" class="social-btn">in</a>
-                    <a href="#" class="social-btn">tw</a>
-                    <a href="#" class="social-btn">ig</a>
-                </div>
-            </div>
-
-            <div class="footer-links">
-                <div class="footer-col">
-                    <h5>Pages</h5>
-                    <a href="home_page.html">Home</a>
-                    <a href="about_page.html">About</a>
-                    <a href="profile_page.html">Profiles</a>
-                    <a href="connection_page.html">Connections</a>
-                    <a href="login_page.html">Sign Up</a>
-                    <a href="contact_page.html">Contact</a>
-                </div>
-                <div class="footer-col">
-                    <h5>Features</h5>
-                    <a href="#">Smart Matching</a>
-                    <a href="#">Video Calls</a>
-                    <a href="#">Live Chat</a>
-                    <a href="#">Safe Dating</a>
-                </div>
-                <div class="footer-col">
-                    <h5>Support</h5>
-                    <a href="#">Help Center</a>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Use</a>
-                    <a href="#">Safety Tips</a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <span>© 2026 HeartSync. Made with ♥ for every single person.</span>
-        </div>
-    </footer>
+    <!-- Footer -->
+    <div id="load_footer"></div>
 
 
 
     <script src="./js/home.js"></script>
     <script src="../function/loadHTML.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 </body>
 
 </html>

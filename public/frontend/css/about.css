@@ -46,7 +46,6 @@ body {
     background: linear-gradient(135deg, var(--rose), var(--rose-deep));
     color: #fff;
     box-shadow: 0 14px 34px rgba(255, 77, 109, 0.28);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-primary:hover {
@@ -57,7 +56,6 @@ body {
 .btn-ghost {
     background: rgba(31, 34, 50, 0.07);
     color: var(--ink);
-    transition: background 0.2s ease;
 }
 
 .btn-ghost:hover {
@@ -197,7 +195,6 @@ body {
     border-radius: 30px;
     background: rgba(255, 255, 255, 0.95);
     border: 1px solid rgba(57, 57, 57, 0.72);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .principle-card:hover {
