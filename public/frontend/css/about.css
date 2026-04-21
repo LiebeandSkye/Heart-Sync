@@ -14,7 +14,7 @@ body {
 .page-shell {
     width: min(1280px, calc(100% - 32px));
     margin: 0 auto;
-    padding: 24px 0 80px;
+    padding: 100px 0;
     display: grid;
     gap: 22px;
 }
@@ -74,7 +74,8 @@ body {
     padding: 52px 48px;
     border-radius: 40px;
     background: rgba(255, 255, 255, 0.82);
-    border: 1px solid rgba(255, 255, 255, 0.72);
+    border-bottom: 3px solid rgba(57, 57, 57, 0.72);
+    border-top: 3px solid rgba(57, 57, 57, 0.72);
     backdrop-filter: blur(20px);
     box-shadow: 0 30px 80px rgba(255, 77, 109, 0.1);
 }
@@ -195,13 +196,13 @@ body {
     padding: 28px 24px;
     border-radius: 30px;
     background: rgba(255, 255, 255, 0.95);
-    border: 1px solid rgba(31, 34, 50, 0.06);
+    border: 1px solid rgba(57, 57, 57, 0.72);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .principle-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 22px 52px rgba(255, 77, 109, 0.1);
+    box-shadow: 0 22px 52px rgba(255, 77, 109, 0.2);
 }
 
 .principle-icon {
@@ -334,6 +335,18 @@ body {
     max-width: 58ch;
     color: var(--ink-soft);
     line-height: 1.75;
+}
+
+/* ============================================================
+   Closing Card
+   ============================================================ */
+.closing-card {
+    text-align: center;
+    padding: 60px 20px;
+    border-radius: 40px;
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid rgba(255, 255, 255, 0.68);
+    box-shadow: 0 30px 80px rgba(255, 77, 109, 0.1);
 }
 
 /* ============================================================

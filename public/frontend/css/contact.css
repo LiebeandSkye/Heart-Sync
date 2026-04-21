@@ -65,7 +65,7 @@ body {
 
 .info-card {
     background: rgba(255, 255, 255, 0.75);
-    border: 1px solid rgba(255, 77, 109, 0.1);
+    border-inline: 1px solid rgba(255, 77, 109, 0.5);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-radius: 22px;
@@ -109,7 +109,8 @@ body {
 /* ── Form card ───────────────────────────────────── */
 .contact-form-card {
     background: rgba(255, 255, 255, 0.82);
-    border: 1px solid rgba(255, 255, 255, 0.78);
+    border-top: 3px solid rgba(57, 57, 57, 0.72);
+    border-left: 3px solid rgba(57, 57, 57, 0.72);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
     border-radius: 28px;
@@ -280,7 +281,8 @@ body {
 
 .sidebar-card {
     background: rgba(255, 255, 255, 0.82);
-    border: 1px solid rgba(255, 255, 255, 0.78);
+    border-top: 3px solid rgba(57, 57, 57, 0.72);
+    border-left: 3px solid rgba(57, 57, 57, 0.72);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
     border-radius: 24px;

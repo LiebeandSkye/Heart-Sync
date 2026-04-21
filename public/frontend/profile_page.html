@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,100 +7,124 @@
     <title>Profile</title>
     <link rel="stylesheet" href="./main.css" />
     <link rel="stylesheet" href="./css/profile.css" />
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;700&display=swap" />
 </head>
 
 <body>
     <div id="load_navigation"></div>
     <div class="page-shell">
         <main class="layout">
+
+            <!-- ===== Editor Panel ===== -->
             <section class="editor-panel">
                 <div class="panel-heading">
                     <p class="eyebrow">Profile Studio</p>
                     <h1>Shape your vibe before you start matching.</h1>
-                    <p class="intro">This page behaves like a lightweight profile editor now. It saves locally so you
-                        can iterate on the UI before wiring Firestore.</p>
                 </div>
 
                 <form class="profile-form" id="profileForm">
-                    <div class="field-grid two-col">
-                        <label>
-                            <span>Display name</span>
-                            <input type="text" name="name" maxlength="32" placeholder="Unknown" />
-                        </label>
-                        <label>
-                            <span>Age</span>
-                            <input type="number" name="age" min="18" max="99" placeholder="18" />
-                        </label>
-                    </div>
 
-                    <div class="field-grid two-col">
-                        <label>
-                            <span>Status</span>
-                            <input type="text" name="status" maxlength="48" placeholder="Ready to meet someone kind" />
-                        </label>
-                        <label>
-                            <span>Location</span>
-                            <input type="text" name="location" maxlength="48" placeholder="Phnom Penh, KH" />
-                        </label>
-                    </div>
-
-                    <label>
-                        <span>Bio</span>
-                        <textarea name="bio" rows="4" maxlength="180"
-                            placeholder="Tell people how you spend your weekends, what you value, and what kind of connection you want."></textarea>
-                    </label>
-
-                    <div class="field-grid two-col">
-                        <label>
-                            <span>Accent color</span>
-                            <input type="color" name="accent" value="#ff4d6d" />
-                        </label>
-                        <label>
-                            <span>Banner color</span>
-                            <input type="color" name="banner" value="#2b2d42" />
-                        </label>
-                    </div>
-
-                    <label>
-                        <span>Avatar letter</span>
-                        <input type="text" name="avatarLetter" maxlength="1" placeholder="L" />
-                    </label>
-
-                    <fieldset class="interest-set">
-                        <legend>Interests</legend>
-                        <div class="interest-list">
-                            <label><input type="checkbox" name="interests" value="Coffee" /> Coffee</label>
-                            <label><input type="checkbox" name="interests" value="Travel" /> Travel</label>
-                            <label><input type="checkbox" name="interests" value="Music" /> Music</label>
-                            <label><input type="checkbox" name="interests" value="Gaming" /> Gaming</label>
-                            <label><input type="checkbox" name="interests" value="Movies" /> Movies</label>
-                            <label><input type="checkbox" name="interests" value="Fitness" /> Fitness</label>
-                            <label><input type="checkbox" name="interests" value="Art" /> Art</label>
-                            <label><input type="checkbox" name="interests" value="Late Night Talks" /> Late Night
-                                Talks</label>
+                    <!-- Avatar section -->
+                    <div class="form-section avatar-section">
+                        <div class="avatar-editor">
+                            <div class="avatar-preview-ring" id="avatarPreviewRing">
+                                <div class="avatar-preview" id="avatarPreviewCircle">L</div>
+                            </div>
+                            <div class="avatar-editor-fields">
+                                <p class="form-section-label">Your Avatar</p>
+                                <p class="avatar-hint">Set a letter and pick a color to personalize your avatar.</p>
+                                <div class="avatar-inline-fields">
+                                    <label class="field-inline">
+                                        <span>Letter</span>
+                                        <input type="text" name="avatarLetter" maxlength="1" placeholder="L" />
+                                    </label>
+                                    <label class="field-inline">
+                                        <span>Color</span>
+                                        <input type="color" name="accent" value="#ff4d6d" />
+                                    </label>
+                                    <label class="field-inline">
+                                        <span>Banner</span>
+                                        <input type="color" name="banner" value="#2b2d42" />
+                                    </label>
+                                </div>
+                            </div>
                         </div>
-                    </fieldset>
+                    </div>
 
-                    <label class="toggle-row">
-                        <span>Show online badge</span>
-                        <input type="checkbox" name="isOnline" checked />
-                    </label>
+                    <!-- Basic info section -->
+                    <div class="form-section">
+                        <p class="form-section-label">Basic Info</p>
+                        <div class="field-grid two-col">
+                            <label>
+                                <span>Display name</span>
+                                <input type="text" name="name" maxlength="32" placeholder="Unknown" />
+                            </label>
+                            <label>
+                                <span>Age</span>
+                                <input type="number" name="age" min="18" max="99" placeholder="18" />
+                            </label>
+                        </div>
+                        <div class="field-grid two-col">
+                            <label>
+                                <span>Status</span>
+                                <input type="text" name="status" maxlength="48" placeholder="Ready to meet someone kind" />
+                            </label>
+                            <label>
+                                <span>Location</span>
+                                <input type="text" name="location" maxlength="48" placeholder="Phnom Penh, KH" />
+                            </label>
+                        </div>
+                        <label>
+                            <span>Bio</span>
+                            <textarea name="bio" rows="4" maxlength="180" placeholder="Tell people how you spend your weekends, what you value, and what kind of connection you want."></textarea>
+                        </label>
+                    </div>
 
+                    <!-- Interests section -->
+                    <div class="form-section">
+                        <p class="form-section-label">Interests</p>
+                        <fieldset class="interest-set">
+                            <div class="interest-list">
+                                <label><input type="checkbox" name="interests" value="Coffee" /> Coffee</label>
+                                <label><input type="checkbox" name="interests" value="Travel" /> Travel</label>
+                                <label><input type="checkbox" name="interests" value="Music" /> Music</label>
+                                <label><input type="checkbox" name="interests" value="Gaming" /> Gaming</label>
+                                <label><input type="checkbox" name="interests" value="Movies" /> Movies</label>
+                                <label><input type="checkbox" name="interests" value="Fitness" /> Fitness</label>
+                                <label><input type="checkbox" name="interests" value="Art" /> Art</label>
+                                <label><input type="checkbox" name="interests" value="Late Night Talks" /> Late Night Talks</label>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <!-- Preferences section -->
+                    <div class="form-section">
+                        <p class="form-section-label">Preferences</p>
+                        <label class="toggle-row">
+                            <div class="toggle-row-text">
+                                <span class="toggle-title">Show online badge</span>
+                                <span class="toggle-sub">Others can see when you are active</span>
+                            </div>
+                            <input type="checkbox" name="isOnline" checked />
+                        </label>
+                    </div>
+
+                    <!-- Actions -->
                     <div class="actions">
                         <button type="submit" class="btn-primary">Save profile</button>
                         <button type="button" class="btn-secondary" id="resetProfile">Reset</button>
                         <p class="save-state" id="saveState" aria-live="polite"></p>
                     </div>
+
                 </form>
             </section>
 
+            <!-- ===== Preview Panel ===== -->
             <aside class="preview-panel">
                 <div class="preview-stack">
+                    <p class="preview-label">Live Preview</p>
                     <section class="discord-card" id="profilePreview">
                         <div class="banner" id="previewBanner"></div>
                         <div class="card-body">
@@ -113,8 +137,7 @@
                                 <span class="online-badge" id="previewBadge">Online</span>
                             </div>
                             <p class="status-pill" id="previewStatus">Ready to meet someone kind</p>
-                            <p class="bio-text" id="previewBio">I like living a life to the fullest and explore new
-                                things!</p>
+                            <p class="bio-text" id="previewBio">I like living a life to the fullest and explore new things!</p>
                             <div class="meta-list">
                                 <div>
                                     <span class="meta-label">Location</span>
@@ -128,12 +151,17 @@
                             <div class="interest-tags" id="previewInterests"></div>
                         </div>
                     </section>
+
+                    <div class="notes-card">
+                        <span class="notes-label">Design note</span>
+                        <h3>This is your profile</h3>
+                        <p>Your profile will be shared with others on the platform. Make sure you are not lying about your information :)</p>
+                    </div>
                 </div>
             </aside>
+
         </main>
     </div>
-
-
 
     <script src="../frontend/js/profile.js"></script>
     <script src="../function/loadHTML.js"></script>

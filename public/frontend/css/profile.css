@@ -1,11 +1,12 @@
-/* ============================================================
-   Profile Page � HeartSync
+﻿/* ============================================================
+   Profile Page - HeartSync (Redesigned)
    ============================================================ */
 
 :root {
     --border: rgba(31, 34, 50, 0.1);
     --card: #1e2035;
     --card-soft: rgba(255, 255, 255, 0.07);
+    --section-gap: 24px;
 }
 
 body {
@@ -15,13 +16,7 @@ body {
         linear-gradient(150deg, #fff8fa 0%, #fff2f5 45%, #f5f0ff 100%);
 }
 
-
-
-button,
-input,
-textarea {
-    font: inherit;
-}
+button, input, textarea { font: inherit; }
 
 /* ============================================================
    Layout Shell
@@ -29,16 +24,14 @@ textarea {
 .page-shell {
     width: min(1260px, calc(100% - 32px));
     margin: 0 auto;
-    padding: 24px 0 80px;
+    padding: 100px 0;
 }
 
-/* ============================================================
-   Two-Panel Layout
-   ============================================================ */
 .layout {
     display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(360px, 0.9fr);
+    grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr);
     gap: 28px;
+    align-items: start;
 }
 
 .editor-panel,
@@ -47,80 +40,100 @@ textarea {
 }
 
 /* ============================================================
-   Editor Panel
+   Editor Panel Shell
    ============================================================ */
 .editor-panel {
     padding: 36px;
     border-radius: 36px;
     background: rgba(255, 255, 255, 0.84);
-    border: 1px solid rgba(255, 255, 255, 0.72);
+    border: 3px solid rgba(57, 57, 57, 0.72);
     backdrop-filter: blur(16px);
     box-shadow: 0 26px 80px rgba(31, 34, 50, 0.1);
 }
 
-.eyebrow,
-.notes-label {
+.eyebrow {
     display: block;
     color: var(--rose);
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     font-weight: 700;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
 }
 
 .panel-heading h1 {
     margin-top: 12px;
     font-family: var(--font-display);
-    font-size: clamp(2rem, 3.8vw, 3.2rem);
-    line-height: 1.04;
+    font-size: clamp(1.8rem, 3.6vw, 3rem);
+    line-height: 1.06;
 }
 
 .intro {
-    margin-top: 14px;
-    max-width: 56ch;
+    margin-top: 12px;
+    max-width: 54ch;
     color: var(--ink-soft);
-    line-height: 1.75;
+    line-height: 1.72;
 }
 
 /* ============================================================
    Profile Form
    ============================================================ */
 .profile-form {
-    display: grid;
-    gap: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--section-gap);
     margin-top: 28px;
 }
 
+/* --- Form Section --- */
+.form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 22px;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1.5px solid rgba(31, 34, 50, 0.06);
+}
+
+.form-section-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    margin: 0;
+}
+
+/* Field grid */
 .field-grid {
     display: grid;
-    gap: 16px;
+    gap: 14px;
 }
 
 .two-col {
     grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.profile-form label,
-.interest-set {
+/* Field labels */
+.profile-form label {
     display: grid;
-    gap: 8px;
+    gap: 7px;
 }
 
-.profile-form span,
-.interest-set legend {
-    font-size: 0.92rem;
+.profile-form span {
+    font-size: 0.88rem;
     font-weight: 700;
     color: var(--ink);
 }
 
+/* Text / number / textarea inputs */
 .profile-form input:not([type='checkbox']):not([type='color']),
-.profile-form textarea,
-.profile-form select {
+.profile-form textarea {
     width: 100%;
-    padding: 13px 16px;
+    padding: 12px 15px;
     border: 1.5px solid var(--border);
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.92);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.94);
     color: var(--ink);
     outline: none;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -134,44 +147,124 @@ textarea {
 
 .profile-form textarea {
     resize: vertical;
-    min-height: 116px;
+    min-height: 110px;
     line-height: 1.65;
 }
 
-/* Color pickers */
-input[type='color'] {
+/* ============================================================
+   Avatar Section
+   ============================================================ */
+.avatar-section {
+    background: linear-gradient(135deg,
+        rgba(255, 77, 109, 0.06),
+        rgba(255, 179, 107, 0.08));
+    border-color: rgba(255, 77, 109, 0.12);
+}
+
+.avatar-editor {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.avatar-preview-ring {
+    flex-shrink: 0;
+    padding: 5px;
+    border-radius: 999px;
+    background: conic-gradient(var(--rose), var(--peach), var(--rose));
+}
+
+.avatar-preview {
+    display: grid;
+    place-items: center;
+    width: 90px;
+    height: 90px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--rose), var(--rose-deep));
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    border: 4px solid #fff;
+    transition: background 0.3s ease;
+}
+
+.avatar-editor-fields {
+    flex: 1;
+    min-width: 0;
+}
+
+.avatar-hint {
+    margin: 4px 0 14px;
+    color: var(--ink-soft);
+    font-size: 0.86rem;
+    line-height: 1.55;
+}
+
+.avatar-inline-fields {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.field-inline {
+    display: grid !important;
+    gap: 6px !important;
+    flex: 1;
+    min-width: 70px;
+}
+
+.field-inline span {
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+    color: var(--ink) !important;
+}
+
+/* Color pickers inside inline fields */
+.field-inline input[type='color'] {
     width: 100%;
-    height: 52px;
-    padding: 6px 8px;
+    height: 46px;
+    padding: 5px 7px;
     border: 1.5px solid var(--border);
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.92);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.94);
     cursor: pointer;
 }
 
-/* Interests fieldset */
+/* Single letter input */
+.field-inline input[type='text'] {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* ============================================================
+   Interests Fieldset
+   ============================================================ */
 .interest-set {
-    border: 1.5px solid var(--border);
-    padding: 20px 18px;
-    border-radius: 22px;
-    background: rgba(255, 255, 255, 0.55);
+    border: 0;
+    padding: 0;
+    margin: 0;
 }
 
 .interest-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
 }
 
 .interest-list label {
-    display: inline-flex;
+    display: inline-flex !important;
     align-items: center;
     gap: 8px;
-    padding: 10px 14px;
+    padding: 9px 15px;
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.92);
-    border: 1.5px solid rgba(31, 34, 50, 0.06);
-    font-size: 0.92rem;
+    border: 1.5px solid rgba(31, 34, 50, 0.07);
+    font-size: 0.88rem;
+    font-weight: 500;
     cursor: pointer;
     transition: border-color 0.2s ease, background 0.2s ease;
 }
@@ -181,25 +274,66 @@ input[type='color'] {
     background: rgba(255, 77, 109, 0.04);
 }
 
-/* Online toggle row */
-.toggle-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 14px 18px;
-    border-radius: 16px;
-    border: 1.5px solid var(--border);
-    background: rgba(255, 255, 255, 0.55);
-    cursor: pointer;
+.interest-list input[type='checkbox'] {
+    accent-color: var(--rose-deep);
+    width: 15px;
+    height: 15px;
 }
 
-/* Form actions */
+/* ============================================================
+   Online Toggle Row
+   ============================================================ */
+.toggle-row {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 16px;
+    border-radius: 16px;
+    border: 1.5px solid var(--border);
+    background: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.toggle-row:hover {
+    border-color: rgba(255, 77, 109, 0.2);
+}
+
+.toggle-row-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.toggle-title {
+    font-size: 0.92rem !important;
+    font-weight: 700 !important;
+    color: var(--ink) !important;
+}
+
+.toggle-sub {
+    font-size: 0.8rem !important;
+    font-weight: 400 !important;
+    color: var(--ink-soft) !important;
+}
+
+.toggle-row input[type='checkbox'] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--rose-deep);
+    flex-shrink: 0;
+}
+
+/* ============================================================
+   Form Actions
+   ============================================================ */
 .actions {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     gap: 12px;
-    margin-top: 4px;
+    padding: 4px 0;
 }
 
 .btn-primary,
@@ -207,7 +341,7 @@ input[type='color'] {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 13px 24px;
+    padding: 13px 26px;
     border: 0;
     border-radius: 999px;
     font-weight: 700;
@@ -223,7 +357,7 @@ input[type='color'] {
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 18px 40px rgba(255, 77, 109, 0.34);
+    box-shadow: 0 18px 40px rgba(255, 77, 109, 0.36);
 }
 
 .btn-secondary {
@@ -238,30 +372,41 @@ input[type='color'] {
 .save-state {
     min-height: 1.4rem;
     color: var(--ink-soft);
-    font-size: 0.9rem;
+    font-size: 0.88rem;
 }
 
 /* ============================================================
    Preview Panel
    ============================================================ */
+.preview-label {
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    margin: 0 0 12px;
+}
+
 .preview-stack {
-    display: grid;
-    gap: 20px;
     position: sticky;
     top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
 }
 
 /* Discord-style dark preview card */
 .discord-card {
     border-radius: 28px;
     overflow: hidden;
+    border: 3px solid rgba(255, 201, 201, 0.72);
     box-shadow: 0 30px 80px rgba(31, 34, 50, 0.22);
     background: var(--card);
     color: #fff;
 }
 
 .banner {
-    height: 152px;
+    height: 140px;
     background: linear-gradient(135deg, #2b2d42, #404663);
     transition: background 0.3s ease;
 }
@@ -273,13 +418,13 @@ input[type='color'] {
 .avatar {
     display: grid;
     place-items: center;
-    width: 88px;
-    height: 88px;
-    margin-top: -40px;
-    border: 6px solid var(--card);
-    border-radius: 26px;
+    width: 80px;
+    height: 80px;
+    margin-top: -36px;
+    border: 5px solid var(--card);
+    border-radius: 24px;
     background: linear-gradient(135deg, var(--rose), #ff7f8d);
-    font-size: 1.9rem;
+    font-size: 1.7rem;
     font-weight: 700;
     text-transform: uppercase;
     transition: background 0.3s ease;
@@ -289,107 +434,117 @@ input[type='color'] {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 14px;
+    gap: 12px;
     margin-top: 14px;
 }
 
 .identity-row h2 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     line-height: 1.2;
 }
 
 .identity-row p {
     margin-top: 4px;
-    font-size: 0.88rem;
-    color: rgba(255, 255, 255, 0.55);
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .online-badge {
     flex-shrink: 0;
-    padding: 9px 13px;
+    padding: 8px 12px;
     border-radius: 999px;
     background: rgba(87, 242, 135, 0.16);
     color: #6cffa0;
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     font-weight: 700;
 }
 
 .status-pill {
-    margin-top: 16px;
-    padding: 12px 14px;
-    border-radius: 16px;
+    margin-top: 14px;
+    padding: 11px 14px;
+    border-radius: 14px;
     background: var(--card-soft);
     color: rgba(255, 255, 255, 0.88);
-    font-size: 0.94rem;
+    font-size: 0.9rem;
+    font-style: italic;
 }
 
 .bio-text {
-    margin-top: 14px;
-    color: rgba(255, 255, 255, 0.78);
-    line-height: 1.72;
-    font-size: 0.93rem;
+    margin-top: 12px;
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.7;
+    font-size: 0.9rem;
 }
 
 .meta-list {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
-    margin-top: 20px;
+    gap: 12px;
+    margin-top: 18px;
 }
 
 .meta-list div {
-    padding: 14px;
-    border-radius: 18px;
+    padding: 13px;
+    border-radius: 16px;
     background: rgba(255, 255, 255, 0.06);
 }
 
 .meta-label {
     display: block;
     margin-bottom: 5px;
-    font-size: 0.76rem;
-    letter-spacing: 0.09em;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.45);
 }
 
 .meta-list div strong {
-    font-size: 0.94rem;
+    font-size: 0.9rem;
 }
 
 .interest-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 18px;
+    gap: 7px;
+    margin-top: 16px;
 }
 
 .interest-tags span {
-    padding: 9px 13px;
+    padding: 8px 12px;
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.09);
-    color: rgba(255, 255, 255, 0.88);
-    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.84rem;
 }
 
-/* Notes helper card */
-.notes-card {
-    padding: 24px;
-    border-radius: 26px;
+/* Notes card */
+.notes-card { 
+    border: 3px solid rgba(57, 57, 57, 0.72);
+    padding: 20px 22px;
+    border-radius: 22px;
     background: rgba(255, 255, 255, 0.86);
-    border: 1px solid rgba(255, 255, 255, 0.68);
-    box-shadow: 0 14px 40px rgba(31, 34, 50, 0.08);
+    box-shadow: 0 12px 36px rgba(31, 34, 50, 0.08);
+}
+
+.notes-label {
+    display: block;
+    color: var(--rose);
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
 }
 
 .notes-card h3 {
     margin-top: 10px;
-    font-size: 1.15rem;
+    font-size: 1.08rem;
 }
 
 .notes-card p:last-child {
     margin-top: 8px;
     color: var(--ink-soft);
-    line-height: 1.72;
-    font-size: 0.93rem;
+    line-height: 1.7;
+    font-size: 0.88rem;
 }
 
 /* ============================================================
@@ -405,52 +560,23 @@ input[type='color'] {
     }
 }
 
-@media (max-width: 720px) {
-    body {
-        padding-bottom: 90px;
-    }
-
-    .page-shell {
-        width: min(100% - 20px, 100%);
-        padding-top: 14px;
-    }
-
+@media (max-width: 640px) {
     .editor-panel {
-        padding: 24px 18px;
-        border-radius: 26px;
+        padding: 22px 18px;
+        border-radius: 24px;
+    }
+
+    .avatar-editor {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
     }
 
     .two-col {
         grid-template-columns: 1fr;
     }
 
-    .meta-list {
-        grid-template-columns: 1fr;
-    }
-
-    .identity-row {
-        flex-direction: column;
+    .avatar-inline-fields {
         gap: 10px;
-    }
-
-    .online-badge {
-        align-self: flex-start;
-    }
-}
-
-@media (max-width: 480px) {
-    .panel-heading h1 {
-        font-size: 1.9rem;
-    }
-
-    .actions {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .actions .btn-primary,
-    .actions .btn-secondary {
-        text-align: center;
-        justify-content: center;
     }
 }
