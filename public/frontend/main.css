@@ -35,7 +35,7 @@
 
 * { 
     box-sizing: border-box; 
-    user-select: none; 
+    user-select: none;
 }
 *::-webkit-scrollbar { width: 12px; height: 12px; }
 *::-webkit-scrollbar-track { background: rgba(242, 76, 124, 0.08); }
@@ -48,6 +48,7 @@
 html { 
     height: -webkit-fill-available; 
     scrollbar-color: var(--rose) rgba(242, 76, 124, 0.12); 
+    scroll-behavior: smooth;
 }
 body { 
     width: 100%; min-height: 100vh; 

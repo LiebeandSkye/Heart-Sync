@@ -706,9 +706,7 @@ button {
     transition: background 0.2s;
 }
 
-.phone-match-row:hover {
-    background: var(--blush);
-}
+
 
 .phone-avatar {
     width: 42px;
@@ -753,6 +751,19 @@ button {
     height: 80px;
     background: radial-gradient(ellipse, rgba(255, 77, 109, 0.3), transparent);
     filter: blur(20px);
+}
+
+@media (max-width: 768px) {
+    .features-phone {
+        display: none;
+    }
+    .features-grid {
+        grid-template-columns: 2fr;
+        text-align: center;
+    }
+    .features-stat-card {
+        display: none;
+    }   
 }
 
 .features-stat-card {
