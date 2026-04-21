@@ -31,10 +31,17 @@
                         <div class="avatar-editor">
                             <div class="avatar-preview-ring" id="avatarPreviewRing">
                                 <div class="avatar-preview" id="avatarPreviewCircle">L</div>
+                                <div class="avatar-overlay" id="avatarOverlay">
+                                    <svg class="avatar-edit-icon" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/>
+                                        <path d="M20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+                                    </svg>
+                                </div>
                             </div>
+                            <input type="file" id="profileImageInput" name="profileImageInput" accept="image/*" style="display:none;" />
                             <div class="avatar-editor-fields">
                                 <p class="form-section-label">Your Avatar</p>
-                                <p class="avatar-hint">Set a letter and pick a color to personalize your avatar.</p>
+                                <p class="avatar-hint">Hover over your avatar to change the profile picture, or customize with a letter and colors.</p>
                                 <div class="avatar-inline-fields">
                                     <label class="field-inline">
                                         <span>Letter</span>
