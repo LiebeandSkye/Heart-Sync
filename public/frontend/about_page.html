@@ -4,29 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About · HeartSync</title>
+    <title>Document</title>
     <link rel="stylesheet" href="./main.css" />
     <link rel="stylesheet" href="./css/about.css" />
-
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;700&display=swap" />
 </head>
 
 <body>
     <div id="load_navigation"></div>
     <div class="page-shell">
-
-        <!-- ── Hero ─────────────────────────────────────── -->
         <section class="about-hero">
             <div class="hero-text">
                 <p class="eyebrow">About HeartSync</p>
-                <h1>A dating space built for calmer chemistry,<br class="br-lg"> not louder chaos.</h1>
-                <p class="lead">HeartSync started from a simple idea: most dating spaces push speed, pressure, and
-                    shallow swiping. This one is shaped around profile depth, softer pacing, and conversations that
-                    feel human.</p>
+                <h1>A dating space built for calmer chemistry, not louder chaos.</h1>
+                <p class="lead">HeartSync started from a simple idea: most dating products reward speed, pressure, and
+                    shallow choices. This one is shaped around profile depth, softer pacing, and conversations that
+                    feel human from the beginning.</p>
                 <div class="hero-actions">
                     <a class="btn-primary" href="./profile_page.html">Shape Your Profile</a>
                     <a class="btn-ghost" href="./connection_page.html">Explore Connections</a>
@@ -37,70 +30,68 @@
                 <div class="info-card featured-card">
                     <span class="card-label">Current build</span>
                     <strong>Client-side first</strong>
-                    <p>Profiles and chat flow are tested in-browser first so the interaction model feels right before
-                        Firebase is wired in.</p>
+                    <p>Profiles, discovery, chat, and auth are being refined in-browser first so the experience feels
+                        intentional before any larger backend work is layered in.</p>
                 </div>
                 <div class="mini-cards">
                     <div class="info-card">
                         <span class="card-num">01</span>
                         <strong>Profile identity</strong>
-                        <p>Let people feel expressive before they message.</p>
+                        <p>Let people feel expressive before they ever send a message.</p>
                     </div>
                     <div class="info-card">
                         <span class="card-num">02</span>
                         <strong>Meaningful matching</strong>
-                        <p>Shared interests and age band, not random percentages.</p>
+                        <p>Shared interests and realistic fit matter more than random percentages.</p>
                     </div>
                     <div class="info-card">
                         <span class="card-num">03</span>
-                        <strong>Chat with intention</strong>
-                        <p>Global energy on one side, direct connection on the other.</p>
+                        <strong>Conversation with intention</strong>
+                        <p>Discovery should lead naturally into a better first chat, not more pressure.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ── Principles ────────────────────────────────── -->
         <section class="principles-section">
             <div class="section-header">
                 <p class="eyebrow">Design Principles</p>
-                <h2>What this website is trying to protect.</h2>
+                <h2>What this product is trying to protect.</h2>
             </div>
-                <div class="principles-grid">
-                    <article class="principle-card">
-                        <span class="card-number">01</span>
-                        <h3>Less pressure</h3>
-                        <p>Profiles should tell a story before messaging starts, so every interaction begins with more
-                            context and less guessing.</p>
-                    </article>
-                    <article class="principle-card">
-                        <span class="card-number">02</span>
-                        <h3>More personality</h3>
-                        <p>Color, status, bio, interests, and presence all matter because people do not connect through one data point.</p>
-                    </article>
-                    <article class="principle-card">
-                        <span class="card-number">03</span>
-                        <h3>Client first</h3>
-                        <p>The right move here is to finish the client experience, as well as keeping the experience safe. Your data will be safe with us, protected by our security measures.</p>
-                    </article>
-                </div>
-            </section>
+            <div class="principles-grid">
+                <article class="principle-card">
+                    <span class="card-number">01</span>
+                    <h3>Less pressure</h3>
+                    <p>Profiles should give enough context that conversations start with curiosity instead of
+                        guesswork.</p>
+                </article>
+                <article class="principle-card">
+                    <span class="card-number">02</span>
+                    <h3>More personality</h3>
+                    <p>Color, presence, voice, interests, and tone all matter because nobody is just one data point.
+                    </p>
+                </article>
+                <article class="principle-card">
+                    <span class="card-number">03</span>
+                    <h3>Client first</h3>
+                    <p>The right move for this build is to make the product feel good and readable before scaling the
+                        machinery behind it.</p>
+                </article>
+            </div>
+        </section>
 
-            <section class="closing-card">
-                <div>
-                    <p class="eyebrow">What To Do Next</p>
-                    <h2>Profiles first, Connections second.</h2>
-                    <p>You can customize your profiles to reflect your personality and interests as well as explore potential connections. So why not go ahead and start making connections? You could find your perfect match right around the corner!</p>
-                </div>
-                <a class="btn-primary" href="./connection_page.html">Continue To Connection</a>
-            </section>
-        </main>
+        <section class="closing-card">
+            <div>
+                <p class="eyebrow">What To Do Next</p>
+                <h2>Profiles first, connections second.</h2>
+                <p>Set up a profile that actually sounds like you, then explore people who feel aligned with your pace,
+                    interests, and kind of conversation.</p>
+            </div>
+            <a class="btn-primary" href="./connection_page.html">Continue To Connection</a>
+        </section>
     </div>
 
-    <!-- Footer -->
     <div id="load_footer"></div>
-
-
 
     <script src="./js/about.js"></script>
     <script src="../function/loadHTML.js"></script>

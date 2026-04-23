@@ -4,31 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact · HeartSync</title>
+    <title>Document</title>
     <link rel="stylesheet" href="./main.css" />
     <link rel="stylesheet" href="./css/contact.css" />
-
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;700&display=swap" />
 </head>
 
 <body>
     <div id="load_navigation"></div>
 
     <main class="contact-shell">
-
-        <!-- ── Hero ──────────────────────────────────── -->
         <section class="contact-hero">
             <p class="eyebrow">Get in Touch</p>
             <h1>Let's start a <em>conversation</em></h1>
-            <p class="contact-hero-sub">Have a question, a success story to share, or just want to say hello?
-                Our team is here and ready to listen.</p>
+            <p class="contact-hero-sub">Have a question, a story to share, or just want to say hello? The team is
+                here and ready to listen.</p>
         </section>
 
-        <!-- ── Info cards ─────────────────────────────── -->
         <div class="contact-info-row">
             <div class="info-card">
                 <div class="info-icon"><box-icon type='solid' name='location-plus'></box-icon></div>
@@ -36,26 +28,23 @@
                 <p>123 Love Lane, Suite 101<br>Phnom Penh, Cambodia</p>
             </div>
             <div class="info-card">
-                <div class="info-icon"><box-icon name='envelope' type='solid' ></box-icon></div>
+                <div class="info-icon"><box-icon name='envelope' type='solid'></box-icon></div>
                 <h4>Email Us</h4>
                 <p>support@heartsync.com<br>hello@heartsync.com</p>
             </div>
             <div class="info-card">
-                <div class="info-icon"><box-icon name='phone-call' type='solid' ></box-icon></div>
+                <div class="info-icon"><box-icon name='phone-call' type='solid'></box-icon></div>
                 <h4>Call Us</h4>
-                <p>+855 (0) 12 345 678<br>Mon–Fri, 9 am – 6 pm</p>
+                <p>+855 (0) 12 345 678<br>Mon-Fri, 9 am - 6 pm</p>
             </div>
         </div>
 
-        <!-- ── Form + Sidebar ─────────────────────────── -->
         <div class="contact-grid">
-
-            <!-- Form card -->
             <div class="contact-form-card">
                 <div id="formContent">
                     <div class="form-head">
                         <h2>Send us a message</h2>
-                        <p>We'll get back to you within one business day.</p>
+                        <p>We will get back to you within one business day.</p>
                     </div>
 
                     <form class="contact-form" id="contactForm">
@@ -75,12 +64,12 @@
                         <div class="form-field">
                             <label for="cSubject">Subject</label>
                             <select id="cSubject" name="subject" class="form-select">
-                                <option value="">Choose a topic…</option>
+                                <option value="">Choose a topic...</option>
                                 <option>General Inquiry</option>
                                 <option>Technical Support</option>
                                 <option>Share a Success Story</option>
                                 <option>Billing / Membership</option>
-                                <option>Safety &amp; Reporting</option>
+                                <option>Safety and Reporting</option>
                             </select>
                         </div>
 
@@ -100,36 +89,36 @@
                     </form>
                 </div>
 
-                <!-- Success state -->
                 <div class="contact-success" id="contactSuccess" hidden>
-                    <span class="success-icon">♥</span>
-                    <h3>Message Sent!</h3>
-                    <p>We've received your message and will reply to your email shortly. Thank you for reaching
-                        out!</p>
+                    <span class="success-icon">❤</span>
+                    <h3>Message Sent</h3>
+                    <p>We have received your message and will reply by email shortly. Thanks for reaching out.</p>
                     <a href="./home_page.html" class="btn-back">Back to Home</a>
                 </div>
             </div>
 
-            <!-- Sidebar -->
             <aside class="contact-sidebar">
                 <div class="sidebar-card">
                     <h3>Frequently Asked</h3>
                     <ul class="faq-list">
                         <li>
                             <strong>How do I reset my password?</strong>
-                            <p>Use the "Forgot password?" link on the login page and follow the email link.</p>
+                            <p>Use the "Forgot password?" link on the login page and follow the email prompt.</p>
                         </li>
                         <li>
                             <strong>Is HeartSync free?</strong>
-                            <p>Core features are free. Premium perks are available via optional membership.</p>
+                            <p>Core features are free. Premium perks can be added later through optional membership.
+                            </p>
                         </li>
                         <li>
                             <strong>How is my data protected?</strong>
-                            <p>We use end-to-end encryption and never sell your personal data.</p>
+                            <p>Your profile data is stored locally in this build while the product experience is being
+                                shaped.</p>
                         </li>
                         <li>
                             <strong>Can I delete my account?</strong>
-                            <p>Head to Settings › Account › Delete Account. It's permanent and instant.</p>
+                            <p>Account controls can be expanded later, but your current local session can be cleared at
+                                any time.</p>
                         </li>
                     </ul>
                 </div>
@@ -138,15 +127,14 @@
                     <h3>Find Us Online</h3>
                     <div class="social-links">
                         <a href="#" class="social-pill"><span>f</span> Facebook</a>
-                        <a href="#" class="social-pill"><span>in</span> Instagram</a>
-                        <a href="#" class="social-pill"><span>tw</span> Twitter / X</a>
+                        <a href="#" class="social-pill"><span>ig</span> Instagram</a>
+                        <a href="#" class="social-pill"><span>x</span> Twitter / X</a>
                     </div>
                 </div>
             </aside>
         </div>
     </main>
 
-    <!-- Footer -->
     <div id="load_footer"></div>
 
     <script src="./js/contact.js"></script>

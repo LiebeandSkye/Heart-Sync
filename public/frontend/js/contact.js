@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         if (submitBtn) submitBtn.disabled = true;
-        if (submitLabel) submitLabel.textContent = 'Sending…';
+        if (submitLabel) submitLabel.textContent = 'Sending...';
 
         // Simulate a short send delay then show success
         setTimeout(() => {

@@ -1,23 +1,18 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>Document</title>
     <link rel="stylesheet" href="./main.css" />
     <link rel="stylesheet" href="./css/profile.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;700&display=swap" />
 </head>
 
 <body>
     <div id="load_navigation"></div>
     <div class="page-shell">
         <main class="layout">
-
-            <!-- ===== Editor Panel ===== -->
             <section class="editor-panel">
                 <div class="panel-heading">
                     <p class="eyebrow">Profile Studio</p>
@@ -25,23 +20,24 @@
                 </div>
 
                 <form class="profile-form" id="profileForm">
-
-                    <!-- Avatar section -->
                     <div class="form-section avatar-section">
                         <div class="avatar-editor">
                             <div class="avatar-preview-ring" id="avatarPreviewRing">
                                 <div class="avatar-preview" id="avatarPreviewCircle">L</div>
                                 <div class="avatar-overlay" id="avatarOverlay">
                                     <svg class="avatar-edit-icon" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/>
-                                        <path d="M20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+                                        <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z" />
+                                        <path
+                                            d="M20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
                                     </svg>
                                 </div>
                             </div>
-                            <input type="file" id="profileImageInput" name="profileImageInput" accept="image/*" style="display:none;" />
+                            <input type="file" id="profileImageInput" name="profileImageInput" accept="image/*"
+                                style="display:none;" />
                             <div class="avatar-editor-fields">
                                 <p class="form-section-label">Your Avatar</p>
-                                <p class="avatar-hint">Hover over your avatar to change the profile picture, or customize with a letter and colors.</p>
+                                <p class="avatar-hint">Hover over the avatar to change the image, or customize it with
+                                    a letter, accent, and banner color.</p>
                                 <div class="avatar-inline-fields">
                                     <label class="field-inline">
                                         <span>Letter</span>
@@ -60,7 +56,6 @@
                         </div>
                     </div>
 
-                    <!-- Basic info section -->
                     <div class="form-section">
                         <p class="form-section-label">Basic Info</p>
                         <div class="field-grid two-col">
@@ -76,20 +71,21 @@
                         <div class="field-grid two-col">
                             <label>
                                 <span>Status</span>
-                                <input type="text" name="status" maxlength="48" placeholder="Ready to meet someone kind" />
+                                <input type="text" name="status" maxlength="48"
+                                    placeholder="Ready to meet someone kind" />
                             </label>
                             <label>
                                 <span>Location</span>
                                 <input type="text" name="location" maxlength="48" placeholder="Phnom Penh, KH" />
                             </label>
                         </div>
-                        <label>
+                        <label class="field-grid">
                             <span>Bio</span>
-                            <textarea name="bio" rows="4" maxlength="180" placeholder="Tell people how you spend your weekends, what you value, and what kind of connection you want."></textarea>
+                            <textarea name="bio" rows="4" maxlength="180"
+                                placeholder="Tell people how you spend your weekends, what you value, and what kind of connection you want."></textarea>
                         </label>
                     </div>
 
-                    <!-- Interests section -->
                     <div class="form-section">
                         <p class="form-section-label">Interests</p>
                         <fieldset class="interest-set">
@@ -101,12 +97,12 @@
                                 <label><input type="checkbox" name="interests" value="Movies" /> Movies</label>
                                 <label><input type="checkbox" name="interests" value="Fitness" /> Fitness</label>
                                 <label><input type="checkbox" name="interests" value="Art" /> Art</label>
-                                <label><input type="checkbox" name="interests" value="Late Night Talks" /> Late Night Talks</label>
+                                <label><input type="checkbox" name="interests" value="Late Night Talks" /> Late Night
+                                    Talks</label>
                             </div>
                         </fieldset>
                     </div>
 
-                    <!-- Preferences section -->
                     <div class="form-section">
                         <p class="form-section-label">Preferences</p>
                         <label class="toggle-row">
@@ -118,17 +114,14 @@
                         </label>
                     </div>
 
-                    <!-- Actions -->
                     <div class="actions">
                         <button type="submit" class="btn-primary">Save profile</button>
                         <button type="button" class="btn-secondary" id="resetProfile">Reset</button>
                         <p class="save-state" id="saveState" aria-live="polite"></p>
                     </div>
-
                 </form>
             </section>
 
-            <!-- ===== Preview Panel ===== -->
             <aside class="preview-panel">
                 <div class="preview-stack">
                     <p class="preview-label">Live Preview</p>
@@ -144,7 +137,8 @@
                                 <span class="online-badge" id="previewBadge">Online</span>
                             </div>
                             <p class="status-pill" id="previewStatus">Ready to meet someone kind</p>
-                            <p class="bio-text" id="previewBio">I like living a life to the fullest and explore new things!</p>
+                            <p class="bio-text" id="previewBio">I like living life to the fullest and exploring new
+                                things.</p>
                             <div class="meta-list">
                                 <div>
                                     <span class="meta-label">Location</span>
@@ -161,12 +155,12 @@
 
                     <div class="notes-card">
                         <span class="notes-label">Design note</span>
-                        <h3>This is your profile</h3>
-                        <p>Your profile will be shared with others on the platform. Make sure you are not lying about your information :)</p>
+                        <h3>This is your first impression</h3>
+                        <p>Your profile will be shared with other people on the platform, so clarity helps just as much
+                            as confidence.</p>
                     </div>
                 </div>
             </aside>
-
         </main>
     </div>
 
